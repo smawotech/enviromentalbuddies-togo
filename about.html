@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environmental Buddies Togo</title>
+    
+    <!--FAVICON -->
+    <link rel="shortcut icon" href="./images/logos/nous.png" type="image/x-icon" />
+
+    <!-- Customised CSS -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/events.css" />
+
+    <!-- AOS library CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+
+    <!-- AOS library JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- <link rel="stylesheet" href="https://unpkg.com/flickity@2.0/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2.0/dist/flickity.pkgd.min.js"></script> -->
+
+    
+
+    <!-- Custom JS -->
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/events.js"></script>
+
+</head>
+<body>
+    <div id="loading"></div>
+
+    <div id="header">
+        <div id="logo">
+            <h5 style="color: #076b35;"><a href="#"><img src="./images/logos/nous.png" alt=""></a>Environmental Buddies Togo</h5>
+        </div>
+        <select id="language-select" onchange="changeLanguage()">
+            <h4><option value="fr">Fr</option></h4>
+            <h4><option value="en">En</option></h4>
+            <!-- Ajoutez d'autres options de langue au besoin -->
+        </select>
+        <h1 id="translated-title"></h1>
+        <p id="translated-text"></p>
+        <script>
+            function changeLanguage() {
+                const selectedLang = document.getElementById('language-select').value;
+                const textToTranslate = document.querySelectorAll('[data-translate]');
+                
+                textToTranslate.forEach(element => {
+                    const originalText = element.innerText;
+                    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${selectedLang}&dt=t&q=${encodeURI(originalText)}`;
+                    
+                    fetch(url)
+                        .then(response => response.json())
+                        .then(data => {
+                            const translatedText = data[0][0][0];
+                            element.innerText = translatedText;
+                        })
+                        .catch(error => console.error('Error:', error));
+                });
+            }
+    
+            // Appel initial pour traduire le contenu au chargement de la page
+            changeLanguage();
+        </script>
+        <nav id="navigation">
+            <a href="index.html" onclick="togglenav()">Acceuil</a>
+            <a href="about.html" onclick="togglenav()">A propos</a>
+            <a href="service.html" onclick="togglenav()">domaines</a>
+            <a href="projects.html" onclick="togglenav()">Projets</a>
+            <a href="gallerie.html" onclick="togglenav()">Gallerie</a>
+            <a href="https://www.facebook.com/environmentalbuddiestogo" onclick="togglenav()">Blog</a>
+            <a href="index.html#faqs" onclick="togglenav()">FAQs</a>
+            <a href="index.html#contact" onclick="togglenav()">Contact</a>
+        </nav>
+        <div id="hamburger-btn" class="text-right">
+            <button onclick="togglenav()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+
+
+<button id="back-to-top"><i class="fas fa-angle-double-up"></i></button>
+<br><br><br><br>
+
+
+<section id="events">
+    <div id="events-container">
+        <h1 data-aos="zoom-in" data-aos-duration="500">A propos de nous</h1>
+    </div><br>
+<div id="container">
+    <p data-aos="zoom-in">Qui sommes nous exactement?</p>
+    <div class="row">
+        <div class="col-lg-6" data-aos="fade-down-right">
+            <img src="./images/logos/nous.png" alt="">
+        </div>
+        <div class="col-lg-6 desc" data-aos="fade-down-left">
+            <h6>
+                Fondée en 2015 l'Association Environmental Buddies Togo (EBT) est née de la prise de conscience de l'absence d'éducation environnementale dans les écoles primaires et secondaires togolaises d’une part et dans les milieux ruraux au bénéfice des agriculteurs.</h6> 
+             <h6>Son origine découle de la nécessité urgente de sensibiliser et d'informer les jeunes sur les défis du changement climatique et de l'insécurité alimentaire, tout en les soutenant techniquement et financièrement pour qu'ils puissent mettre en œuvre des actions d'adaptation et de résilience.</h6>
+            <h6>EBT a obtenu son numéro d’enregistrement en 2020 et et continue les formalités administratives pour l’obtention de son récépissé.  
+                Avec les autorités communales, nous contribuons à la réalisation des projets environnementaux de leurs plans de Développement communaux, avec les communautés rurales et les groupements de producteurs, nous réalisons non seulement des projets de reforestation et de restauration des paysages forestiers mais également d’agroforesterie pour soutenir la pratique d’une agriculture durable. 
+            </h6>
+        </div>
+    </div>
+    <br><br><div id="timer" data-aos="zoom-in" data-aos-duration="3000">
+        <h3>Dates: 6th - 7th March, 2021</h3>
+        <h1><b>Historique</b></h1>
+        <!-- <h1 id="count-down"></h1> -->
+    </div><br><br>
+    <div class="row">
+        <div class="col-lg-6" data-aos="fade-up-right">
+            <div id="judging-params">
+                <h4>Judging Parameters:</h4>
+                <ol>
+                    Marks will be assigned on planning-
+                    <li>Proper usage of provided bye laws</li>
+                    <li>Time of submission</li>
+                    <li>Sensibility and Accuracy of planning</li>
+                    <li>Presentation</li>
+                    <li>Mentioning the IS code used in the planning</li>
+                </ol>
+            </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-up-left">
+            <div id="rules">
+                <h4>Rules:</h4>
+                <ol>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla optio, neque doloribus ipsum, a minima incidunt ea suscipit et exercitationem quaerat</li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla optio, neque doloribus ipsum, a minima incidunt ea suscipit et exercitationem quaerat</li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla optio, neque doloribus ipsum, a minima incidunt ea suscipit et exercitationem quaerat</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<footer>
+    <div id="footer-container" class="d-md-block d-lg-block d-xl-block d-none" style="background-image:  url(images/ebt.gif); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed;background-color: transparent;">
+        <div class="terms">
+            <a href="" style="cursor: text;background-color: transparent;"><i style="color: white;background-color: transparent;" class="far fa-copyright"></i> 2024 | ENVIRONMENTAL BUDDIES-TOGO</a>
+            <div id="logo-footer"><a href="#"><img src="./images/logos/cesa white.png" alt="" height="70" width="60" style="background-color: transparent;"></a></div>
+            
+            <ul id="sci" class="mt-3">
+                <li><span><a href="https://www.instagram.com//" target="_blank" style="background-color:transparent;"><i class="fab fa-instagram" style="font-size: 23px;"></i></a></span></li>
+                <li><span><a href="https://www.linkedin.com/in//" target="_blank" style="background-color:transparent;"><i class="fab fa-linkedin-in" style="font-size: 23px;"></i></a></span></li>
+                <li><span><a href="https://www.youtube.com/channel/UCPy89RXTqPXYzwQ_hIAoRGg" target="_blank" style="background-color:transparent;"><i class="fab fa-youtube" style="font-size: 23px;"></i></a></span></li>
+                <li><span><a href="#contact" style="background-color:transparent;"><i class="far fa-envelope" style="font-size: 23px;"></i></a></span></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="footer-container" class="d-sm-block d-md-none d-lg-none d-xl-none" style="background-image:  url(images/ebt.gif); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed;background-color: transparent;">
+        <div class="container" style="background-color: transparent;">
+            <div class="row" style="background-color: transparent;">
+                <div class="col-12 text-center" style="background-color: transparent;">
+                    <div id="logo-footer"><a href="#"><img src="./images/logos/cesa white.png" alt="" height="90" width="90" style="background-color: transparent;"></a></div>
+                </div>
+                <div class="col-12 text-center" style="background-color: transparent;">
+                    <h4 style="background-color: transparent; color: var(--backgroundWhite); font-weight: bold;">Follow Us</h4>
+                    <ul id="sci">
+                        <li><span><a href="https://www.instagram.com/cesavjti/" target="_blank" style="background-color:var(--textBlack);"><i class="fab fa-instagram" style="font-size: 23px; text-decoration: none; color: var(--backgroundWhite)"></i></a></span></li>
+                        <li><span><a href="https://www.linkedin.com/in/cesa-vjti-44aa59174/" target="_blank" style="background-color:var(--textBlack);"><i class="fab fa-linkedin-in" style="font-size: 23px; text-decoration: none; color: var(--backgroundWhite)"></i></a></span></li>
+                        <li><span><a href="https://www.youtube.com/channel/UCPy89RXTqPXYzwQ_hIAoRGg" target="_blank" style="background-color:var(--textBlack);"><i class="fab fa-youtube" style="font-size: 23px; text-decoration: none; color: var(--backgroundWhite);"></i></a></span></li>
+                        <li><span><a href="#contact" style="background-color:var(--textBlack);"><i class="far fa-envelope" style="font-size: 23px; text-decoration: none; color: var(--backgroundWhite)"></i></a></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="terms">
+            <a href="" style="cursor: text;background-color: transparent;"><i style="color: white;background-color: transparent;" class="far fa-copyright"></i> ENVIRONMENTAL BUDDIES-TOGO</a>
+            <a href="smawotech.github.io" style="cursor: text;background-color: transparent;"><i style="color: white;background-color: transparent;" class="far fa-hard-hat"></i> Designed by Smart World Technology SARL</a>
+        </div>
+    </div>
+    
+
+
+
+
+
+
+</body>
+<script>
+    // Initializing AOS
+    AOS.init({duration: 1200,});
+
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</html>
